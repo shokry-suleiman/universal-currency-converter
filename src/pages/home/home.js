@@ -1,42 +1,19 @@
 import euro from "../../assets/icons/euro.svg";
-import unitedState from "../../assets/icons/united-states-of-america.png";
+import CurrencyCard from '../../components/currency-card.js'
 function Home() {
   return (
     <div className="columns-2 w-screen h-screen gap-0">
-      <div className="h-full bg-primary">
-        <img className="block" src={euro} alt="..." />
-        <input id="number" type="number" value="42" />
-        <hr />
-        <div>EUR</div>
+      <div className="h-full bg-primary flex flex-col justify-start items-center">
+        <img className="block mb-8 mt-[80px]" src={euro} alt="..." />
+        <input id="number" type="number" value={23.50}  className="bg-primary	text-center text-white font-bold text-[80px] focus:outline-none"/>  
+        <div className="h-[1px] bg-blue w-5/6"></div>
+        <div className="text-blue text-[32px] mt-2">EUR</div>
       </div>
-      <div className="h-full p-6 ">
-        <div className="flex items-center shadow-lg shadow-black rounded-lg p-4">
-          <div className="text-black">USD</div>
-          <img
-            className="border border-primary rounded-full w-[50px]"
-            src={unitedState}
-            alt="..."
-          />
-          <div className="text-black justify-self-end">0.38</div>
-        </div>
-        <div className="flex items-center shadow-lg shadow-black rounded-lg p-4">
-          <div className="text-black">USD</div>
-          <img
-            className="border border-primary rounded-full w-[50px]"
-            src={unitedState}
-            alt="..."
-          />
-          <div className="text-black justify-self-end">0.38</div>
-        </div>
-        <div className="flex items-center shadow-lg shadow-black rounded-lg p-4">
-          <div className="text-black">USD</div>
-          <img
-            className="border border-primary rounded-full w-[50px]"
-            src={unitedState}
-            alt="..."
-          />
-          <div className="text-black justify-self-end">0.38</div>
-        </div>
+      <div className="h-full p-10 overflow-y-auto">
+      {[...Array(10)].map((x, i) =>
+            <CurrencyCard key={i} />
+          )}
+      
       </div>
     </div>
   );
